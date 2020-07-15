@@ -16,4 +16,4 @@ def test_release_version():
 	with open("github_version.txt", "r") as f:
 		github_version = f.readline()
 	
-	assert f"v{version}" == github_version
+	assert f"v{version}" == github_version.rstrip()
