@@ -14,6 +14,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+    - name: Write version to file
+      run: echo ${{ steps.get_version.outputs.VERSION }} > github_version.txt
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
